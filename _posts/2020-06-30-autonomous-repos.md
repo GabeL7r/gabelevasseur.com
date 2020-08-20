@@ -6,13 +6,13 @@ description: "Coming soon!"
 
 If you are a developer, you have probably had the monorepo vs multirepo debate at some point in your career. You have probably read blogs like [this one](https://chengl.com/multirepo-vs-monorepo/) or [this one](https://medium.com/@patrickleet/mono-repo-or-multi-repo-why-choose-one-when-you-can-have-both-e9c77bd0c668) or [this one](http://blog.shippable.com/our-journey-to-microservices-and-a-mono-repository). You have probably heard big companies like Google and Facebook use monorepos while Amazon and Netflix prefer multirepos.
 
-You have probably **not** discussed what *should* be in each multirepo -- if you decide to use this approach. (Un)Luckily Conway's Law fills the void.
+What you probably have **not** discussed is what *should* be in each multirepo -- if you decide to use this approach. (Un)Luckily Conway's Law fills the void.
 
 >Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure.
 >
 > --  Conway's Law
 
-If your organization has a DevOps or Platform Team, then according to Conway's Law the organization will have the following repositories:
+A typical organization is likely to have the following repositories:
 
 ###### Application Repositories
 * user-service
@@ -22,36 +22,36 @@ If your organization has a DevOps or Platform Team, then according to Conway's L
 
 ###### DevOps/Platform Repositories
 * terraform-modules
-* terraform
+* terraform/cloudformation/Infrastructure as Code
 * ansible/salt/puppet
 
-From my experience, there are two issues that result:
+This kind of repository structure results in two issues:
 
-##### Workflow
-How does an application developer create a new service or add a new feature requiring infrastructure/configuration changes? The workflow I have experienced goes something like this:
+###### Developer Workflow
+The workflow for a developer to create a new service or make required changes to infrastructure goes something like this:
 
-1. Create a new repository for the service.
-2. Update the terraform repo.
+1. Create a new repository for the new service.
+2. Update the Infrastructure as Code repo.
 3. Update the configuration management repo.
 4. Coordinate deployments for each of the above.
 4. Add documentation to one or more of the sources you use.
 
-On the surface, this isn't terrible, but it's not great. When you dig deeper there is one big problem: the DevOps and application team priorities are different. I have felt the frustration from both sides of this workflow. As a developer, you are dependent on the DevOps team to either add or approve the requested changes. As a DevOps team member, you have multiple interrupts distracting you from your planned work.
+On the surface, this isn't terrible, but it's not great. When you dig deeper there is one big problem: the DevOps and application team priorities are different. Each team has a different roadmap, project manager, and daily standup. I have felt the frustration from both sides of this workflow. As a developer, you are dependent on the DevOps team to either add or approve the requested changes. Oftentime you also need the assistance of a DevOps team member to guide you through the required changes. As a DevOps team member, you have multiple interrupts distracting you from your planned work.
 
 > the DevOps and application team priorities are different
 
-##### Ownership
-Each team has ownership of their respective repositories. The DevOps team will setup tooling (i.e. pre-commit, make, etc), standards, and processes to govern the repositories they manage; application developers will do the same. In the worst-case scenario, DevOps has full ownership -- eventually becoming a bottleneck as the engineering team grows; in the best-case scenario, there is shared ownership of infrastructure/configuration between DevOps and application developers; 
+###### Ownership
+Each team has ownership of their respective repositories. The DevOps team will setup tooling (i.e. pre-commit, make, etc), standards, and processes to govern the repositories they manage; application developers will do the same. In the worst-case scenario, the DevOps team manages all infrastructure/configuration management. This approach works in organizations with small engineering teams, but it does not scale well. Eventually, DevOps becomes a bottleneck slowing down progress of application developers. There are two options: increase the size of the DevOps team or distribute the responsibility to application developers.
 
-In the worst-case scenario, the DevOps team manages all infrastructure/configuration management. This approach works in organizations with small engineering teams, but it does not scale well. Eventually, DevOps becomes a bottleneck slowing down progress of application developers. There are two options: increase the size of the DevOps team or distribute the responsibility to application developers. The latter option is the better option in my opinion.
 
-In the best-case scenario, the DevOps team promotes application developer ownership. The DevOps team gives application developers the ability to make, approve, and deploy changes to infrastructure/configuration that relates to the application developer's project. I have done this using Codeowners in GitHub. It does help, but the code is still in a "DevOps repo." ### Add more here
+### Distributed Ownership
+One way for the DevOps team to distribute ownership to pieces of the DevOps team repositories is through the use of [Codeowners](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners) in GitHub. Using Codeowners different teams are given the ability to approve and merge Pull Requests based on file paths. Application developers can then deploy changes to infrastructure/configuration that relates to their project without DevOps involvement. However, the code is still in a DevOps team repository which creates a shared ownership.
 
-## TODO: figure out how to break this up here, maybe a picture?
-How can we address this?
+Another way to distribute ownership is to move the pieces of Infrastructure as Code and configuration management for an application into the application repo. The DevOps team is still responsible for s
+
 
 ### Autonomous Repositories
-Autonomous means: having autonomy; not subject to control from outside; independent. Using this definition, an autonomonous repository is one that is not subject to control from the outside. It should contain all code, documentation, provisioning, and configuration management to run an application in production. Autonomous repositories promote the DevOps philosophy by empowering engineers to work across the entire application lifecycle.
+Autonomous means: having autonomy; not subject to control from outside; independent. Hence, an autonomonous repository is one that is not subject to control from the outside. It contains all code, documentation, provisioning, and configuration management to run an application in production. Autonomous repositories promote the DevOps philosophy by empowering engineers to work across the entire application lifecycle.
 
 > a repository that contains all code, documentation, and provisioning and configuration management to run an application in production
 
