@@ -10,8 +10,7 @@
         <div class="row">
           {{ $paginator := .Paginate .Data.Pages }}
           {{ range $paginator.Pages }}
-          {{ "
-          <!-- blog post -->" | safeHTML }}
+          {{"<!-- blog post -->" | safeHTML }}
           <div class="col-sm-6 mb-4">
             <article class="card border-0 shadow rounded-lg">
               <img src="{{ .Params.Image | absURL }}" class="img-fluid card-img-top rounded-top-lg" alt="post-thumb">
@@ -22,8 +21,7 @@
             </article>
           </div>
           {{ end }}
-          {{"
-          <!-- pagination -->" | safeHTML }}
+          {{"<!-- pagination -->" | safeHTML }}
           <div class="col-12 mt-5">
             {{ $paginator := .Paginator }}
             <!-- Number of links either side of the current page. -->
@@ -113,8 +111,7 @@
             </nav>
             {{ end }}
           </div>
-          {{"
-          <!-- /pagination -->" | safeHTML }}
+          {{"<!-- /pagination -->" | safeHTML }}
         </div>
       </div>
       {{ partial "sidebar.html" . }}
@@ -122,8 +119,7 @@
   </div>
 </section>
 {{ else if (eq .Section "task")}}
-{{ "
-<!-- details page -->" | safeHTML }}
+{{ "<!-- details page -->" | safeHTML }}
 <section class="pt-5 section-lg-bottom">
   <div class="container shadow section-sm rounded">
     <div class="row">
@@ -176,8 +172,7 @@
     </div>
   </div>
 </section>
-{{ "
-<!-- /details page -->" | safeHTML }}
+{{ "<!-- /details page -->" | safeHTML }}
 
 <!-- templates -->
 
