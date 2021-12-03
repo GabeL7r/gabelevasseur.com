@@ -5,7 +5,6 @@ draft: false
 author: "Gabe Levasseur"
 bg_image: ""
 description: "To make a user-friendly system, the system must have conceptual integrity."
-toc: 
 ---
 
 I recently started re-reading [The Mythical Man-Month](https://www.amazon.com/Mythical-Man-Month-Software-Engineering-Anniversary/dp/0201835959/ref=sr_1_1?keywords=the+mythical+man-month&qid=1638460439&sr=8-1) and I was reminded of *Conceptual Integrity*:
@@ -58,7 +57,7 @@ Here is a snippet of code to illustrate a gap in *conceptual integrity* from a c
         return node
 ```
 
-The method `command_path` uses a variable named `rv` as a placeholder for the return value and `find_root` doesn't. If you examine [the code](https://github.com/pallets/click/blob/main/src/click/core.py) you'll find a pretty evenly split distribution of methods that use `rv` and those that do not -- leaving a developer adding a new feature to this code base with one question: Should I use `rv` or not?
+The method `ensure_object` uses a variable named `rv` as a placeholder for the return value and `find_root` doesn't. If you examine [the code](https://github.com/pallets/click/blob/main/src/click/core.py) you'll find a pretty evenly split distribution of methods that use `rv` and those that do not -- leaving a developer adding a new feature to this code base with one question: Should I use `rv` or not?
 
 This decision may seem trivial but I've seen developers debate topics like this for days. It is so common there is even a term for it: bikeshedding.
 
