@@ -1,5 +1,5 @@
 build:
-	@hugo --gc --minify
+	@NODE_ENV=production hugo --gc --minify
 	@git checkout gh-pages
 	@cp -r public/* .
 	@rm -rf public

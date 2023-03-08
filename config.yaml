@@ -1,156 +1,62 @@
-baseURL: "https://gabelevasseur.com"
-languageCode: "en-us"
-title: "Gabe Levasseur"
-theme: "hugo-profile"
+baseURL: "https://gabelevasseur.com/"
+title: Gabe Levasseur
+paginate: 5
+languageCode: en-us
+theme: mini
 
-googleanalytics: UA-130246375-1
-disqusShortname:
-Paginate: 3
-markup:
-  goldmark:
-    renderer:
-      unsafe: true
+googleAnalytics: UA-123-45
 
-taxonomies:
-  tag: "tags"
-  category: "categories"
+social:
+  github: https://github.com/gabel7r
+  linkedin: https://www.linkedin.com/in/gabelevasseur/
 
-enableEmoji: true
+# Site parameters
 params:
-  version: 3
-  favicon: "/images/fav.ico"
-  description: "A high performance hugo theme for personal portfolio and blog."
+  # Site Author
+  author: Gabe Levasseur
+  # Author biography
+  bio: Builder / Leader / Engineer
+  # Site Description, used in HTML meat
+  description: My Blog
 
-  # Navbar Menus
-  customMenus:
-    - name: "Blog"
-      Url: "/blog"
 
-  # home
-  disable_home: false
-  profile_image: "/images/about.jpg"
-  name: "Gabe Levasseur"
-  profession: "Polyglot Engineer | Entrepreneur"
-  github: "https://github.com/gabel7r"
-  linkedin: "https://linkedin.com/in/gabelevasseur"
-  twitter: ""
-  instagram: ""
-  facebook: ""
+  ###########################################
+  # Optional Configuration
+  ###########################################
 
-  # About
-  disable_about: false
-  descripe_l1_person: "Hi, I'm Gabe! I'm a passionate Software Engineer with a diverse background. I am a first generation college graduate who double majored in Computer and Electrical Engineering with a minor in Mathematics. I have a Masters Degree in Finance and currently working on a Masters in Computer Science at Georgia Tech. Before becoming a Software Engineer I worked as a Nuclear Engineer for 7 years with the Navy and Nuclear Regulatory Commission."
-  descripe_l2_person: "I get my greatest sense of joy when I am able to improve the efficiency of other developers, processes, or myself."
-  skills:
-    - name: AWS
-      percentage: 100
-    - name: Terraform
-      percentage: 100
-    - name: Javascript
-      percentage: 90
-    - name: Python
-      percentage: 80
-    - name: Go
-      percentage: 60
+  # To enable RSS, you could set `enableRSS: true`, default is `true`
+  enableRSS: false
+  # To enable comments, you may need to set `disqusShortname`
+  enableComments: false
+  # To enable comments, you may need to set `googleAnalytics`
+  enableGoogleAnalytics: true
+  # To enable table of content, you could set `showToc: true`, default is `false`
+  showToc: true
+  # To hidden powerBy message in the page footer, you could set: `showPowerBy: false`, default is `true`
+  showPowerBy: false
+  # To enable math typesetting , you could set `math: true`, default is `false`
+  math: false
+  # To hidden post summary in home page, you could set `hiddenPostSummaryInHomePage: true`, default is `false`
+  hiddenPostSummaryInHomePage: false
+  # Website copy write, default: '© Copyright 2021 ❤️ {params.author}'
+  copyright: '' 
 
-  # Experience
-  disable_experience: false
-  experience:
-    - company: "Headspace"
-      role: "Software Engineering Manager"
-      startdate: Mar 2018
-      enddate: present
-      featuredpoints:
-        - point: Lead a team of eight DevOps Engineers.
-        - point: Reduced AWS Spend by 25%.
-        - point: Established Metrics and OKRs to improve team performance/capacity.
-    - company: "Dun and Bradstreet"
-      role: "Lead Frontend Developer"
-      startdate: Jan 2017
-      enddate: Mar 2018
-      featuredpoints:
-        - point: "Lead a team of 12 software developers in the creation, improvement, and maintenance of a mission-critical set of application for the organization."
-        - point: "Converted three separate repos to a monorepo to improve developer efficiency and improve conceptual integrity between the projects."
-        - point: "Planned and started a migration from Angular to React."
-        - point: "Implemented End-to-End testing using CodeceptJS and trained QA Engineers on to write the tests (QA was manual previous to this)."
-        - point: "Organized a weekly developer training for Engineers to learn from each other."
-        - point: "Worked with Angular, React, Java, Jenkins, AWS, CodeceptJS, Wordpress, PHP and more."
-    - company: "Draftcrunch"
-      role: "De-facto CTO"
-      startdate: Feb 2019
-      enddate: Jan 2020
-      featuredpoints:
-        - point: They said I would be working with two other engineers. Both quit before I started. I had two-days of turnover and then I was responsible for everything tech.
-        - point: I drank from a firehose seven days a week. I had to learn about query optimization, AWS, CSS frameworks, mobile responsiveness, CI/CD pipelines, multiple API frameworks, Wordpress and more.
-    - company: "SigningDay"
-      role: "Software Engineer"
-      startdate: Nov 2015
-      enddate: Jun 2016
-      featuredpoints:
-        - point: Used Python and Scrapy to build a web scraper
-        - point: Worked with javascript with Angular, PhoneGap and a home-rolled framework to maintain a web/native application and API
-        - point: Helped re-write JS application using Java and the Play framework.
-        - point: Setup Linode servers to run and monitor our applications, my first exposure to DevOps.
-    - company: "US Nuclear Regulatory Commission"
-      role: "Nuclear Engineer"
-      startdate: Jan 2013
-      enddate: Nov 2015
-      featuredpoints:
-        - point: Read a lot of documents, went to a lot of meetings and realized I was not meant for government work.
-    - company: "Portsmouth Naval Shipyard"
-      role: "Nuclear Engineer"
-      startdate: Jun 2008
-      enddate: Jan 2013
-      featuredpoints:
-        - point: Directed a team of Navy and Shipyard personal to conduct maintenance and testing on Nuclear systems
+  # Extra links in navigation
+  links:
+    - name: Terrahaxs
+      path: https://www.terrahaxs.com
+    - name: Peptok
+      path: https://peptokapp.com/
+    ## e.g.
+    # - name: Project
+    #   path: /project
 
-  # Education
-  disable_education: false
-  education:
-    - degree: "MS"
-      branch: "Computer Science"
-      university: "Georgia Tech"
-      startedyear: "2020"
-      graduation: ""
-    - degree: "MS"
-      branch: "Finance"
-      university: "Southern New Hampshire University"
-      startedyear: "2015"
-      graduation: "2017"
-    - degree: "BS"
-      branch: " Computer and Electrical Engineering"
-      university: "University of Maine"
-      startedyear: "2005"
-      graduation: "2008"
-
-  # Projects
-  disable_projects: false
-  projects:
-    - name: "Githaxs"
-      img: /images/project.svg
-      githublink: "https://github.com/githaxs"
-      featuredlink: "https://githaxs.com"
-      description: "Githaxs is your one-stop-shop for Continuous Integration. With us, you can cut down your CI system setup time from weeks to minutes."
-
-  # Achievements
-  disable_achievements: false
-  achievements:
-    - title: AWS Solutions Architect - Professional
-      description: A cloud computing expert who designs the architecture of an organization's cloud assets and plans implementation of the design.
-      img: /images/aws.png
-    - title: "Entrepreneurship 1: Developing the Opportunity"
-      description: Learned proven techniques for identifying the opportunity, assessing the opportunity, hypothesis testing and creating a prototype.
-      img: /images/coursera.svg
-
-  # Contact
-  disable_contact: false
-  contact_content: My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-  email: "gabel7r@gmail.com"
-
-  # Footer
-  socialiconfooter: true
-  recentposts: true
-
-  # Blog
-  showdescription: false
-  tweet: true
+  # You can put your custom css and js to `static` directory, or use remote css and js files which start with `http://` or `https://`
+  customCSS:
+    ## e.g.
+    # - css/custom.css # local css in `static/css/custom.css`
+    # - https://example.com/custom.css # remote css
+  customJS:
+    ## e.g.
+    # - js/custom.js # local js in `static/js/custom.js`
+    # - https://example.com/custom.js # remote js
